@@ -1,0 +1,37 @@
+import 'package:ciscos/screens/Products_details.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../models/models.dart';
+
+class ProductItem extends StatelessWidget {
+  ProductItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var Pro = Provider.of<Products>(context);
+    return GridTile(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => Product_detail(
+                    Product: Pro,
+                  )));
+        },
+        child: Image.network(
+          Pro.imageurl,
+          fit: BoxFit.cover,
+        ),
+      ),
+      header: Text(Pro.name),
+      footer: GridTileBar(
+        backgroundColor: Colors.green,
+        title: Text(
+          Pro.price.toString(),
+          textAlign: TextAlign.center,
+        ),
+        trailing: Icon(Icons.shopping_bag),
+      ),
+    );
+  }
+}

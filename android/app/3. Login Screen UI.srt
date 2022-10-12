@@ -1,0 +1,423 @@
+1
+00:00:00,590 --> 00:00:03,500
+Let's start by cleaning up our main dot art file.
+
+2
+00:00:03,500 --> 00:00:06,020
+We can rename our up to flutter social UI
+
+3
+00:00:09,070 --> 00:00:13,370
+and then we'll change the theme data to primary color colors upload
+
+4
+00:00:16,420 --> 00:00:18,480
+and then below our my app class.
+
+5
+00:00:18,590 --> 00:00:19,890
+We can delete the my homepage.
+
+6
+00:00:19,940 --> 00:00:29,200
+Class and then for the home we'll type in like screen.
+
+7
+00:00:29,220 --> 00:00:35,860
+Now let's create a screen folder inside of lib directory.
+
+8
+00:00:35,940 --> 00:00:40,850
+We're going to make a file called like an underscore screen that.
+
+9
+00:00:41,730 --> 00:00:43,390
+And this is going to be a straightforward.
+
+10
+00:00:44,040 --> 00:00:48,550
+And I can type in SDF which is the shortcut using the V S code extension.
+
+11
+00:00:48,550 --> 00:00:50,660
+Awesome folder snippets.
+
+12
+00:00:51,150 --> 00:01:00,610
+Hit enter and then log in screen remember to import material by hovering over safe widget holding down
+
+13
+00:01:00,610 --> 00:01:05,790
+command period on Mac and then selecting material daughter after that.
+
+14
+00:01:05,800 --> 00:01:08,250
+Let's have our log in screen return a scaffold
+
+15
+00:01:11,140 --> 00:01:12,740
+and it's safe.
+
+16
+00:01:12,760 --> 00:01:20,320
+Now go back to main that are and then we can import the log and screen and then to remove the debug
+
+17
+00:01:20,320 --> 00:01:22,220
+banner in the top right.
+
+18
+00:01:22,240 --> 00:01:26,560
+Right under title we can add debug show checked mode banner and set out to false.
+
+19
+00:01:28,150 --> 00:01:35,030
+Let's take a look at our log in screen UI we can see that we have an image here with a custom clipper.
+
+20
+00:01:35,350 --> 00:01:42,730
+We have a text widget and then two text fields and below that we have a flat button and then a container
+
+21
+00:01:42,730 --> 00:01:46,600
+at the bottom of the screen giving us an option to sign up.
+
+22
+00:01:46,600 --> 00:01:52,560
+Now let's go to our logon screen daughter and we start building out the screen for the screen.
+
+23
+00:01:52,570 --> 00:01:54,550
+We're going to be using a single child scroll view
+
+24
+00:02:01,210 --> 00:02:03,520
+and you may be thinking that we could also use a list to you.
+
+25
+00:02:04,150 --> 00:02:08,580
+But the problem with the list view is that we're not able to have our image go underneath our style
+
+26
+00:02:08,600 --> 00:02:12,670
+bar if we have a lost view than the image is going to start over here.
+
+27
+00:02:12,730 --> 00:02:17,960
+But by using a single child scroll view the image will be able to go underneath the status bar.
+
+28
+00:02:18,060 --> 00:02:19,660
+We're going to make a container with it.
+
+29
+00:02:21,000 --> 00:02:23,320
+And we need to specify the height of the container.
+
+30
+00:02:23,660 --> 00:02:28,980
+And that's just going to be media query out of context that size dot height
+
+31
+00:02:31,980 --> 00:02:35,330
+and that's our scroll view takes up our entire screen.
+
+32
+00:02:35,370 --> 00:02:40,650
+Now this container will contain a column widget and inside a column widget we're going to have each
+
+33
+00:02:40,650 --> 00:02:46,430
+of the different widgets so let's create a child.
+
+34
+00:02:46,880 --> 00:02:57,940
+Column children our first child will be an image so so image image asset image and then we're going
+
+35
+00:02:57,940 --> 00:03:01,400
+to pass in the location of our image in our file tree.
+
+36
+00:03:01,660 --> 00:03:03,380
+And that's going to be an asset.
+
+37
+00:03:03,520 --> 00:03:06,450
+Images log in to underscore background deejay Peg
+
+38
+00:03:15,400 --> 00:03:21,980
+that's it save and we see that the image appeared up here next at the height of the image we'll set
+
+39
+00:03:22,000 --> 00:03:31,040
+it to media query out of context dot size dot height divided by 2.5
+
+40
+00:03:33,720 --> 00:03:41,070
+and then in order to make it feel up to the top of the screen we need to add a fit on this box fit dot
+
+41
+00:03:41,070 --> 00:03:41,430
+cover
+
+42
+00:03:44,170 --> 00:03:50,110
+and in order to make sure our image always takes up the entire width of our container we can also add
+
+43
+00:03:50,200 --> 00:03:59,640
+the width property and you stumbled on Infinity next let's add the texture underneath image we'll create
+
+44
+00:03:59,790 --> 00:04:02,280
+a text widget and it'll say frenzy
+
+45
+00:04:06,200 --> 00:04:07,270
+what a style to
+
+46
+00:04:13,080 --> 00:04:23,330
+textile color themed out of context our primary color and that's the blue color we set in our made out
+
+47
+00:04:23,340 --> 00:04:23,970
+our file here
+
+48
+00:04:28,010 --> 00:04:41,390
+font size 30 4.0 font weight font weight doubled we'll see what the letter spacing to 1.0 it's save
+
+49
+00:04:41,400 --> 00:04:44,020
+and now we have our text appearing here.
+
+50
+00:04:44,970 --> 00:04:51,240
+Now let's work on adding these two text fields each with a prefix icon we're going to first add a size
+
+51
+00:04:51,240 --> 00:04:54,750
+box of height ten point 0.
+
+52
+00:04:54,900 --> 00:05:00,930
+After that we're going to create our text field and our textual who's going to have a decoration input
+
+53
+00:05:00,990 --> 00:05:01,530
+decoration
+
+54
+00:05:04,980 --> 00:05:12,720
+and if we add save we can see our textual appears inside the input recreation we're going to have the
+
+55
+00:05:12,720 --> 00:05:16,710
+property for color colors that way.
+
+56
+00:05:16,710 --> 00:05:20,990
+And that's the color of the inside of a text field in order to see the full color.
+
+57
+00:05:21,000 --> 00:05:24,440
+We need to set filled to true.
+
+58
+00:05:24,440 --> 00:05:29,530
+And then will the text to username.
+
+59
+00:05:29,550 --> 00:05:35,010
+Now it's at the prefix icon icon icons that account box
+
+60
+00:05:38,540 --> 00:05:40,590
+and set these sides to thirty point 0
+
+61
+00:05:43,890 --> 00:05:45,150
+looking at our.
+
+62
+00:05:45,150 --> 00:05:52,500
+You are here we can see that the user name label is not in line with the icon and the way we fix that
+
+63
+00:05:52,500 --> 00:05:58,630
+is by adding content padding to our input decoration and selling that to edge inserts.
+
+64
+00:05:58,730 --> 00:06:09,180
+That's a metric vertical fifteen point 0 and it save it up bumped our techs down a little bit.
+
+65
+00:06:09,240 --> 00:06:10,920
+Lastly a thousand padding to our text field
+
+66
+00:06:14,060 --> 00:06:21,420
+edge inserts dot symmetric horizontal twenty point 0 vertical ten point 0
+
+67
+00:06:24,650 --> 00:06:25,980
+and now we have our first X field
+
+68
+00:06:30,220 --> 00:06:38,020
+now for our second text field let's copy this here including the size box and the padding tax yield
+
+69
+00:06:39,820 --> 00:06:47,550
+it save and we have our next X field we can remove user name and replace it with password
+
+70
+00:06:50,460 --> 00:06:55,920
+and then I can start a count box we can start as icons dot LOC
+
+71
+00:06:59,180 --> 00:07:04,460
+and since this is a password field we want to be able to obscure the text because we don't want users
+
+72
+00:07:04,460 --> 00:07:15,710
+to see the password so inside text field but outside decoration will set obscure text to true and it
+
+73
+00:07:15,710 --> 00:07:24,250
+save now we can't see what we're typing for the button underneath our two text fields we're going to
+
+74
+00:07:24,250 --> 00:07:25,090
+create a container
+
+75
+00:07:33,170 --> 00:07:40,950
+we'll solve the margins to edge insert that symmetric horizontal sixty point of
+
+76
+00:07:44,840 --> 00:07:55,160
+the decoration box decoration color deemed out of context the primary color and also include the border
+
+77
+00:07:55,160 --> 00:08:05,750
+radius border radius dots circular thirty point 0 and remember to add a height so we can see the container
+
+78
+00:08:09,170 --> 00:08:12,500
+what are the child text.
+
+79
+00:08:12,510 --> 00:08:20,150
+Text in and our container shrunk to the size of our text.
+
+80
+00:08:20,240 --> 00:08:26,780
+So what are the align property to our container alignment.
+
+81
+00:08:26,920 --> 00:08:36,910
+Center and now our container expanded and we can style our text by doing textile color colors not white
+
+82
+00:08:37,960 --> 00:08:47,340
+font size twenty two point two font weight font weight that w 600 letter spacing.
+
+83
+00:08:47,550 --> 00:08:57,840
+Also to one point five and it save and it looks like I put too much border on our button so let's reduce
+
+84
+00:08:57,840 --> 00:09:08,080
+it to four radius at Circular ten point 0 and then we can add a size box read about our container height
+
+85
+00:09:08,110 --> 00:09:08,940
+forty point A
+
+86
+00:09:11,850 --> 00:09:16,530
+in order to make the container clickable we're going to wrap our container in a gesture detector
+
+87
+00:09:20,760 --> 00:09:21,810
+and add on top
+
+88
+00:09:25,440 --> 00:09:33,510
+for the final widget of our logon screen we need to add the container down here and when we do that
+
+89
+00:09:34,320 --> 00:09:43,950
+is by going underneath our duster detector and we'll make the container the alignment will be alignment
+
+90
+00:09:44,300 --> 00:09:54,210
+that center just like we did with our previous container of the color theme Don of context dot primary
+
+91
+00:09:54,210 --> 00:09:54,510
+color
+
+92
+00:09:57,960 --> 00:10:06,860
+the height also to eighty point so noted safe and we see that our container appears right here let's
+
+93
+00:10:06,860 --> 00:10:14,060
+add the child tax before we push it down to the bottom so say don't have an account
+
+94
+00:10:17,980 --> 00:10:24,750
+and remember to add the apostrophe here so we escape it with the backslash sign up
+
+95
+00:10:28,080 --> 00:10:30,270
+and for styling textile
+
+96
+00:10:33,060 --> 00:10:41,010
+color colors that way font size twenty point font wait aren't we.
+
+97
+00:10:41,040 --> 00:10:45,120
+The W 500.
+
+98
+00:10:45,360 --> 00:10:54,570
+Now let's wrap our container in a gesture detector to make it clickable gesture detector on top giving
+
+99
+00:10:54,610 --> 00:11:00,630
+an empty method and to push our container down to the bottom of the screen we need to wrap our gesture
+
+100
+00:11:00,630 --> 00:11:14,370
+detector with a new widget called a line alignment fractional offset dot bottom center and that's going
+
+101
+00:11:14,370 --> 00:11:22,430
+to align our container to the bottom center of the bounce around it and then we wrap our line with it
+
+102
+00:11:23,060 --> 00:11:28,770
+then expanded and once we save we're going to see the container be pushed all the way down to the bottom
+
+103
+00:11:31,640 --> 00:11:36,810
+the expanded widget is allowing the container to take up the rest of the screen and then align the container
+
+104
+00:11:36,810 --> 00:11:39,600
+to the bottom center sticks it to the bottom.
+
+105
+00:11:39,890 --> 00:11:41,270
+So now for the keyboard comes up
+
+106
+00:11:44,520 --> 00:11:46,590
+we see that the container has still stuck on the bottom.
