@@ -1,4 +1,5 @@
 import 'package:ciscos/screens/Mainpage.dart';
+import 'package:ciscos/screens/Shop.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+  const MyApp();
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -55,7 +56,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                   image: AssetImage('assets/background.webp'),
                   fit: BoxFit.fitHeight)),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.values[2],
+            mainAxisAlignment: MainAxisAlignment.values[3],
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox.fromSize(
@@ -135,15 +136,14 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              // SignInButton(
-              //   Buttons.Google,
-              //   onPressed: () {
-              //     var auth = FirebaseAuth.instance
-              //         .signInWithProvider(GoogleAuthProvider());
-              //     print(auth);
-              //   },
-              //   text: "",
-              // )
+              TextButton(
+                child: Icon(Icons.mail),
+                onPressed: () {
+                  var auth = FirebaseAuth.instance
+                      .signInWithProvider(GoogleAuthProvider());
+                  print(auth);
+                },
+              )
             ],
           )),
     );

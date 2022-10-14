@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Product_Screen extends StatefulWidget {
-  Product_Screen({super.key});
+  Product_Screen();
 
   @override
   State<Product_Screen> createState() => _Product_ScreenState();
@@ -48,7 +48,8 @@ class _Product_ScreenState extends State<Product_Screen> {
                 crossAxisCount: 2,
                 childAspectRatio: 3 / 2.5,
                 mainAxisSpacing: 10),
-            itemBuilder: ((context, index) => ProductItem()),
+            itemBuilder: ((context, index) => Card(
+                color: Theme.of(context).canvasColor, child: ProductItem())),
             itemCount: productsData.length),
       ),
     );

@@ -1,5 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase/firestore.dart';
 import '../models/models.dart';
 
 class Product with ChangeNotifier {
@@ -46,5 +46,14 @@ class Product with ChangeNotifier {
   void addProduct() {
     //_item.add(value);
     notifyListeners();
+  }
+
+  Future<QuerySnapshot<Map<String, dynamic>>> getData() async {
+    QuerySnapshot<Map<String, dynamic>> data = await FirebaseFirestore.instance
+        .collection('user')
+        .doc()
+        .collection('products')
+        .get();
+    return data;
   }
 }
