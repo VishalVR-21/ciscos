@@ -1,5 +1,6 @@
 import 'package:ciscos/screens/Mainpage.dart';
 import 'package:ciscos/screens/Shop.dart';
+import 'package:ciscos/screens/dummyscreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -10,9 +11,9 @@ import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(MaterialApp(
-    home: MyApp(),
+    home: Dummy(),
   ));
 }
 

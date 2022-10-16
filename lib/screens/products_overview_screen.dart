@@ -20,6 +20,7 @@ class ProductsOverviewScreen extends StatefulWidget {
 
 class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   var _showOnlyFavorites = false;
+  var data = FirebaseFirestore.instance.collection('/user/furOEfMe4gwqX4MzK4nN/products').get();
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
               setState(() {
+                print(data);
                 if (selectedValue == FilterOptions.Favorites) {
                   _showOnlyFavorites = true;
                 } else {
@@ -89,7 +91,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           //     }),
         ],
       ),
-
       drawer: AppDrawer(),
       body: ProductsGrid(_showOnlyFavorites),
     );

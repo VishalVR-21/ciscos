@@ -28,11 +28,9 @@ class Product with ChangeNotifier {
         .collection('user')
         .doc()
         .collection('products')
-        .get().then((value) => value['id']);
+        .get();
+        
+      
     return data;
   }
-  {
-
-  }
-
 }
