@@ -1,3 +1,4 @@
+import 'package:ciscos/provider/product.dart';
 import 'package:ciscos/screens/Mainpage.dart';
 import 'package:ciscos/screens/Shop.dart';
 import 'package:ciscos/screens/dummyscreen.dart';
@@ -13,7 +14,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MaterialApp(
-    home: Dummy(),
+    showSemanticsDebugger: false,
+    debugShowCheckedModeBanner: false,
+    home: Mainpage(),
   ));
 }
 

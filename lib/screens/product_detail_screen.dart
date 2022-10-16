@@ -1,4 +1,4 @@
-import 'package:ciscos/screens/providers/cart.dart';
+import 'package:ciscos/provider/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

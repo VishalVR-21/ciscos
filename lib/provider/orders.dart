@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import './cart.dart';
+import 'cart.dart';
 
 class OrderItem {
   final String id;
@@ -9,10 +9,10 @@ class OrderItem {
   final DateTime dateTime;
 
   OrderItem({
-    required this.id,
-    required this.amount,
-    required this.products,
-    required this.dateTime,
+    @required this.id,
+    @required this.amount,
+    @required this.products,
+    @required this.dateTime,
   });
 }
 

@@ -5,5 +5,5 @@ class Expert {
   String name = "";
   String details = "";
 
-  Expert({required this.name, required this.details, required this.number});
+  Expert({@required this.name, @required this.details, @required this.number});
 }

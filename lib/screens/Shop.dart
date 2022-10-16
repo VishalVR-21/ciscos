@@ -5,8 +5,8 @@ import '../screens/cart_screen.dart';
 import '../screens/products_overview_screen.dart';
 import '/./screens/product_detail_screen.dart';
 import './providers/products.dart';
-import './providers/cart.dart';
-import './providers/orders.dart';
+import '../provider/cart.dart';
+import '../provider/orders.dart';
 import '/./screens/orders_screen.dart';
 
 class ShopApp extends StatelessWidget {
@@ -25,6 +25,8 @@ class ShopApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+
           title: 'MyShop',
           theme: ThemeData(
             primarySwatch: Colors.green,

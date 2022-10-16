@@ -1,10 +1,11 @@
-import 'package:ciscos/screens/providers/advisor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+
+import '../provider/advisor.dart';
 
 class Advice extends StatelessWidget {
   Advice();
@@ -22,34 +23,36 @@ class Advice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text("Adivesory"),
-      ),
-      body: Container(
-        child: ListView.builder(
-            itemCount: expert.length,
-            itemBuilder: ((context, index) => GestureDetector(
-                  onTap: () {
-                    int num = expert[index].number;
-                    String number = "tel://$num";
-                    launchUrlString(number);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.green[300],
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    margin: EdgeInsets.all(10),
-                    child: ListTile(
-                      leading: CircleAvatar(),
-                      title: Text(expert[index].name),
-                      subtitle: Text(expert[index].details),
-                      trailing: Text(expert[index].number.toString()),
-                    ),
-                  ),
-                ))),
-      ),
-    ));
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+            title: Text("Adivesory"),
+          ),
+          body: Container(
+            child: ListView.builder(
+                itemCount: expert.length,
+                itemBuilder: ((context, index) => GestureDetector(
+                      onTap: () {
+                        int num = expert[index].number;
+                        String number = "tel://$num";
+                        launchUrlString(number);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green[300],
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        margin: EdgeInsets.all(10),
+                        child: ListTile(
+                          leading: CircleAvatar(),
+                          title: Text(expert[index].name),
+                          subtitle: Text(expert[index].details),
+                          trailing: Text(expert[index].number.toString()),
+                        ),
+                      ),
+                    ))),
+          ),
+        ));
   }
 }

@@ -1,13 +1,15 @@
+import 'package:ciscos/screens/providers/products.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
+import '../provider/product.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Dummy extends StatefulWidget {
-  const Dummy({Key? key}) : super(key: key);
+  const Dummy({Key key}) : super(key: key);
 
   @override
   State<Dummy> createState() => _DummyState();
@@ -25,9 +27,13 @@ class _DummyState extends State<Dummy> {
     // print(newval);
     // print("hellos");
     void readData() {
-      databaseReference.get().then((value) => print(value.value));
+      databaseReference
+          .get()
+          .then((value) => value.child('description').children);
     }
   }
+
+  List<Product> l = [];
 
   void createData() {
     databaseReference
@@ -52,17 +58,31 @@ class _DummyState extends State<Dummy> {
         .set({'name': 'Naveen', 'description': 'Associate Software Engineer'});
   }
 
-  void readData() {
-    databaseReference.once().then((snapshot) {
-      print('Data : ${snapshot.previousChildKey}');
-    });
-  }
+  final userref = FirebaseFirestore.instance
+      .collection('/user/furOEfMe4gwqX4MzK4nN/products');
+
+  // void readData() {
+  //   databaseReference.once().then((snapshot) {
+  //     var data = snapshot.snapshot.children.forEach((element) {
+  //       Product.from);
+  //     });
+  //   });
+  // }
 
   @override
   void initState() {
+    getUser();
     // TODO: implement initState
-    hello();
     super.initState();
+  }
+
+  getUser() {
+    userref.get().then((value) {
+      value.docs.forEach((element) {
+        print(element.data());
+      });
+      print("DOne");
+    });
   }
 
   var datas = FirebaseDatabase.instance
@@ -77,8 +97,7 @@ class _DummyState extends State<Dummy> {
           Center(
               child: TextButton(
                   onPressed: (() {
-                    createData();
-                    readData();
+                    getUser();
                   }),
                   child: Text('Hellos'))),
         ],

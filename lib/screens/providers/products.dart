@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import './product.dart';
+import '../../provider/product.dart';
 
 class Products with ChangeNotifier {
   List<Product> _items = [
@@ -65,17 +65,51 @@ class Products with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  void addProduct() {
-    // _items.add(value);
+  void addProduct(Product value) {
+    _items.add(value);
+
     notifyListeners();
   }
 
-  Future<QuerySnapshot<Map<String, dynamic>>> getData() async {
-    QuerySnapshot<Map<String, dynamic>> data = await FirebaseFirestore.instance
-        .collection('user')
-        .doc()
-        .collection('products')
-        .get();
-    return data;
+  Future<List<Product>> getData() async {
+    // QuerySnapshot<Map<String, dynamic>> data = await FirebaseFirestore.instance
+    //     .collection('user')
+    //     .doc()
+    //     .collection('products')
+    //     .get();
+    final userref = FirebaseFirestore.instance
+        .collection('/user/furOEfMe4gwqX4MzK4nN/products');
+    Product n;
+    userref.get().then((value) {
+      value.docs.forEach((element) {
+        n = Product(
+            id: element.data()['id'],
+            title: element.data()['title'],
+            description: element.data()['description'],
+            price: element.data()['price'],
+            imageUrl: element.data()['imageUrl']);
+      });
+      addProduct(n);
+    });
+    return [..._items];
+    //return data;
+  }
+
+  Future<List<Product>> getUser() async {
+    final userref = FirebaseFirestore.instance
+        .collection('/user/furOEfMe4gwqX4MzK4nN/products');
+    Product n;
+    userref.get().then((value) {
+      value.docs.forEach((element) {
+        n = Product(
+            id: element.data()['id'],
+            title: element.data()['title'],
+            description: element.data()['description'],
+            price: element.data()['price'],
+            imageUrl: element.data()['imageUrl']);
+      });
+      addProduct(n);
+    });
+    return [..._items];
   }
 }

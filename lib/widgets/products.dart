@@ -1,15 +1,18 @@
 import 'package:ciscos/screens/Products_details.dart';
+import 'package:ciscos/screens/providers/products.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/models.dart';
+import '../provider/product.dart';
 
 class ProductItem extends StatelessWidget {
-  ProductItem();
+  Product items;
+  ProductItem({this.items});
 
   @override
   Widget build(BuildContext context) {
-    var Pro = Provider.of<Products>(context);
+    // var Pro = Provider.of<Product>(context);
     return Card(
       elevation: 3,
       shadowColor: Colors.black,
@@ -19,19 +22,19 @@ class ProductItem extends StatelessWidget {
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => Product_detail(
-                      Product: Pro,
+                      Product: items,
                     )));
           },
           child: Image.network(
-            Pro.imageurl,
+            items.imageUrl,
             fit: BoxFit.cover,
           ),
         ),
-        header: Text(Pro.name),
+        header: Text(items.title),
         footer: GridTileBar(
           backgroundColor: Colors.green,
           title: Text(
-            Pro.price.toString(),
+            items.price.toString(),
             textAlign: TextAlign.center,
           ),
           trailing: Icon(Icons.shopping_bag),
