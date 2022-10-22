@@ -61,12 +61,12 @@ class _HomePage_TabbarState extends State<HomePage_Tabbar> {
             // ]),
 
             bottomNavigationBar: BottomNavigationBar(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.teal,
               currentIndex: _selected,
               onTap: _onItemTapped,
               items: [
                 BottomNavigationBarItem(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Colors.teal,
                     icon: Icon(Icons.shopping_bag),
                     label: 'Shop'),
                 BottomNavigationBarItem(

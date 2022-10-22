@@ -46,6 +46,10 @@ dependencies:
   flutter_phone_direct_caller: ^2.1.1
   url_launcher: ^6.1.6
   firebase_database: ^9.1.7
+  google_fonts: ^3.0.1
+  carousel_slider: ^4.0.0
+  flutter_image_slideshow: ^0.1.4
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:

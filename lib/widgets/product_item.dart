@@ -6,11 +6,11 @@ import '../provider/product.dart';
 import '../provider/cart.dart';
 
 class ProductItem extends StatelessWidget {
-  // final String id;
-  // final String title;
-  // final String imageUrl;
+  final String id;
+  final String title;
+  final String imageUrl;
 
-  // ProductItem(this.id, this.title, this.imageUrl);
+  ProductItem(this.id, this.title, this.imageUrl);
 
   @override
   Widget build(BuildContext context) {

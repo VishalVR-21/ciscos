@@ -25,11 +25,10 @@ class ShopApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-              debugShowCheckedModeBanner: false,
-
+          debugShowCheckedModeBanner: false,
           title: 'MyShop',
           theme: ThemeData(
-            primarySwatch: Colors.green,
+            primarySwatch: Colors.teal,
             fontFamily: 'Lato',
           ),
           home: ProductsOverviewScreen(),

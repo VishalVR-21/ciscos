@@ -1,16 +1,18 @@
-import 'package:ciscos/screens/create_user.dart';
+import 'package:ciscos/screens/Mainpage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-class Registration extends StatelessWidget {
-  Registration();
+class Add_User extends StatelessWidget {
+  Add_User();
   static const routename = "./register";
 
   @override
   TextEditingController name = TextEditingController();
 
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController dob = TextEditingController();
+  TextEditingController mobilenumber = TextEditingController();
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,7 @@ class Registration extends StatelessWidget {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Farmers friend',
+                      'Complete User details',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -53,56 +55,45 @@ class Registration extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: TextField(
-                    controller: email,
+                    controller: dob,
+                    keyboardType: TextInputType.datetime,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Email',
+                      labelText: 'Enter date of birth',
                     ),
                   ),
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
                   child: TextField(
+                    keyboardType: TextInputType.name,
                     obscureText: true,
-                    controller: password,
+                    controller: mobilenumber,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Password',
+                      labelText: 'Mobile number',
                     ),
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    //forgot password screen
-                  },
-                  child: const Text(
-                    'Forgot Password',
-                  ),
-                ),
+
                 Container(
                     height: 50,
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
-                      child: const Text('Registration'),
-                      onPressed: () {
-                        var firebase = FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                                email: email.text, password: password.text);
-                        if (firebase != null) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Add_User()));
-                        } else {
-                          showDialog(
-                              context: context,
-                              builder: (context) => Container(
-                                    child: const Text("Authetnication failed"),
-                                  ));
-                        }
-                        // Naviagate to main screen
-                      },
-                    )),
+                        child: const Text('Add user'),
+                        onPressed: () {
+                          var names = name.text;
+                          var nub = mobilenumber.text;
+
+                          FirebaseFirestore.instance.collection("people").add({
+                            'Name': name.text,
+                            'Number': mobilenumber.text,
+                            'DOB': dob.text
+                          });
+                          // FirebaseAuth.instance.currentUser
+                          //     .updateDisplayName(name.text);
+                          Navigator.pushNamed(context, '/main');
+                        })),
 
                 // Row(
                 //   children:[

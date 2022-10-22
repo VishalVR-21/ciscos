@@ -1,3 +1,6 @@
+import 'package:ciscos/models/payment.dart';
+import 'package:ciscos/screens/add_address.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -5,15 +8,50 @@ import '../provider/cart.dart' show Cart;
 import '../widgets/cart_item.dart';
 import '../provider/orders.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   static const routeName = '/cart';
 
   @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  @override
+  @override
   Widget build(BuildContext context) {
+    final userRef = FirebaseFirestore.instance
+        .collection('user/furOEfMe4gwqX4MzK4nN/products');
     final cart = Provider.of<Cart>(context);
+    getItems() async {
+      WidgetsFlutterBinding.ensureInitialized();
+      // userRef.get().then((value) {
+      //   value.docs.forEach((element) {
+      //     var datas = element.data();
+      //     print(datas);
+      //     datas.map((key, value) {
+      //       //print(value['title']);
+      //       return value;
+      //     });
+      //     print(value);
+      //     //   Product n = Product(id: datas, title: title, description: description, price: price, imageUrl: imageUrl)
+      //   });
+      final QuerySnapshot snap = await userRef.get();
+
+      // print(snap.docs.length);
+      var name;
+      snap.docs.forEach((element) {
+        Map<String, dynamic> data = element.data();
+
+        cart.addItem(data['productId'], data['price'], data['title']);
+      });
+      // print(name);
+    }
+
+    List<Cart> carts = [];
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.teal,
         title: Text('Your Cart'),
       ),
       body: Column(
@@ -32,12 +70,12 @@ class CartScreen extends StatelessWidget {
                   Spacer(),
                   Chip(
                       label: Text(
-                        '\$${cart.totalAmount.toStringAsFixed(2)}',
+                        '\$${carts}',
                         style: TextStyle(
                           color: Colors.black,
                         ),
                       ),
-                      backgroundColor: Colors.green),
+                      backgroundColor: Colors.teal),
                   TextButton(
                     child: Text(
                       'ORDER NOW',
@@ -48,7 +86,10 @@ class CartScreen extends StatelessWidget {
                         cart.items.values.toList(),
                         cart.totalAmount,
                       );
-                      cart.clear();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PaymentScreen()));
                     },
                   )
                 ],

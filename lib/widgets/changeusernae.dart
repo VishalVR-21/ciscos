@@ -1,18 +1,13 @@
-import 'package:ciscos/screens/Mainpage.dart';
-import 'package:ciscos/screens/registration.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
-class SignUp extends StatelessWidget {
-  SignUp();
-
-  static const routename = "./signup";
-
-  TextEditingController password = TextEditingController();
-
-  @override
+class ChangeName extends StatelessWidget {
+  ChangeName({Key key}) : super(key: key);
   TextEditingController email = TextEditingController();
-
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -28,7 +23,7 @@ class SignUp extends StatelessWidget {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Farmers friend',
+                      'Change User name',
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -38,7 +33,7 @@ class SignUp extends StatelessWidget {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Login',
+                      'Change user names',
                       style: TextStyle(fontSize: 20),
                     )),
                 Container(
@@ -51,17 +46,7 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: password,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                    ),
-                  ),
-                ),
+
                 TextButton(
                   onPressed: () {
                     //forgot password screen
@@ -74,22 +59,16 @@ class SignUp extends StatelessWidget {
                     height: 50,
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
-                      child: const Text('Login'),
+                      child: const Text('Confirm'),
                       onPressed: () async {
                         // var data = await FirebaseAuth.instance
                         //     .fetchSignInMethodsForEmail(email.text);
                         // print(data);
                         var firebase = FirebaseAuth.instance;
 
-                        var result = firebase.signInWithEmailAndPassword(
-                            email: email.text, password: password.text);
-                        // This is the place where you enoroute to main page;
-                        if (result != Null) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Mainpage()));
-                        }
+                        var name =
+                            firebase.currentUser.updateDisplayName(email.text);
+                        Navigator.pop(context);
                       },
                     )),
 
@@ -108,34 +87,6 @@ class SignUp extends StatelessWidget {
                 //   ],
                 //   mainAxisAlignment: MainAxisAlignment.center,
                 // ),
-                SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(10, 5, 10, 0),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        OutlinedButton(
-                          child: Text(
-                            "Register account",
-                            style: TextStyle(
-                              color: Colors.teal,
-                            ),
-                          ),
-                          onPressed: () {
-                            PageRoute n = MaterialPageRoute(
-                                builder: (context) => Registration());
-                            Navigator.pushReplacement(context, n);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                )
               ],
             )),
       ),

@@ -46,7 +46,7 @@ class _Product_ScreenState extends State<Product_Screen> {
   // }
 
   Widget build(BuildContext context) {
-    // var product = Provider.of<Product>(context);
+    var product = Provider.of<Product>(context);
     initState() {
       // print(product.getUser());
       super.initState();
@@ -112,7 +112,9 @@ class _Product_ScreenState extends State<Product_Screen> {
                     itemBuilder: ((context, index) {
                       return ListTile(
                         // leading: Image.network(prd[index].imageUrl),
-                        title: Text(prd[index].title==null?"Hello world":prd[index].title),
+                        title: Text(prd[index].title == null
+                            ? "Hello world"
+                            : prd[index].title),
                         subtitle: Text(prd[index].description == null
                             ? "Hello world"
                             : prd[index].description),

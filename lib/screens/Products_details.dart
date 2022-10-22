@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../models/models.dart';
 import '../provider/product.dart';
 import '../provider/provider.dart';
 
 class Product_detail extends StatelessWidget {
-  Product_detail({Product Product});
+  Product prd;
+  Product_detail({Product Prd});
 
   @override
   Widget build(BuildContext context) {
-
-    
-    var productsData = Provider.of<Products>(context);
-
+    // var productsData = Provider.of<Products>(context);
 
     return MaterialApp(
+        showSemanticsDebugger: false,
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(),
-          body: Container(child: Text(productsData.name)),
+          body: Container(child:  Text(prd.title?? "Hellos world")),
         ));
   }
 }
