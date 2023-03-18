@@ -1,16 +1,75 @@
 # ciscos
 
-A new Flutter project.
+A flutter firebase ecommerce project built during the internship.
+ 
+Screens it contains:
+=> Onboarding
 
-## Getting Started
+=> Login (Google and email)
 
-This project is a starting point for a Flutter application.
+=> Forgot Password
 
-A few resources to get you started if this is your first Flutter project:
+=> Sign Up
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+=> Complete Profile
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+=> OTP Verification
+
+=> Home Page
+
+=> Product Details
+
+=> Order
+
+=> Profile 
+
+=>Settings
+
+=> Testimonials
+
+=> Suggestions and expert opinion 
+
+=> Bottom Navigation Bar
+
+=> Cart
+
+=> Checkout and Payment 
+
+Screens description and pictures
+
+<h1>Login Screen  </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124654.png" alt="Girl in a jacket" width="500" height="600">
+
+
+<h1>Home screen  </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124721.png" alt="Girl in a jacket" width="500" height="600">
+
+
+<h1>Profile section  </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124730.png" alt="Girl in a jacket" width="500" height="600">
+
+<h1>Products section </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124725.png" alt="Girl in a jacket" width="500" height="600">
+
+<h1>Advise or expert section </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124737.png" alt="Girl in a jacket" width="500" height="600">
+
+<h1>Special category sales and advice </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124739.png" alt="Girl in a jacket" width="500" height="600">
+
+<h1>Special category sales and advice </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124739.png" alt="Girl in a jacket" width="500" height="600">
+
+<h1>Cart section </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124800.png" alt="Girl in a jacket" width="500" height="600">
+
+<h1>Final checkout section </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124807.png" alt="Girl in a jacket" width="500" height="600">
+
+
+
+
+<h1>YouTube Videos on the products  </h1>
+<img src="https://github.com/VishalVR-21/ciscos/blob/master/Screenshot_20230225-124749.png" alt="Girl in a jacket" width="500" height="600">
+
+
